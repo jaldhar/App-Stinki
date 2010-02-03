@@ -26,6 +26,7 @@ use strict;
 use base 'Titanium';
 use Carp qw/ croak /;
 use English qw/ -no_match_vars /;
+use Module::Load;
 use URI::Escape;
 use Wiki::Toolkit;
 
@@ -67,14 +68,23 @@ itself and load all necessary parameters. The wiki decides here what to do and
 loads all needed values from the configuration file, as C<setup> is not called 
 directly.
 
-The only required value in the configuration file is:
+The only required values in the configuration file are:
 
   store => $store
 
-The store entry must be the Wiki::Toolkit::Store that this wiki resides in.
+The Wiki::Toolkit::Store::* module used by this wiki.
 
-Most of the parameters to the constructor of Wiki::Toolkit can also be passed
-here and will be passed on to the Wiki::Toolkit object.
+  storeargs => { ... },
+
+A hashref containing parameters which will be passed to the constructor of the
+store module.  See the documentation for each store module for details.
+
+Optionally the configuration file can also contain: 
+
+  tmpl_path => $path_to_templates,
+
+Where stinki will find its templates.  If it is not specified, a default 
+location is used.
 
 =cut
 
@@ -104,7 +114,8 @@ sub setup {
     my $q = $self->query;
 
     my %default_config = (
-        store          => './db',
+        store          => undef,
+        storeargs      => undef,
         script_name    => $q->script_name,
         extended_links => 1,
         implicit_links => 1,
@@ -117,12 +128,22 @@ sub setup {
           defined $self->config($_) ? $self->config($_) : $default_config{$_};
     }
 
+    my $store = 'Wiki::Toolkit::Store::' . $args{store};
+    my $error = eval { load $store; };
+    if ($error) {
+        croak "load $store error\n";
+    }
+
     $self->param( 'script_name' => $args{script_name} );
 
-    my $wiki = Wiki::Toolkit->new(%args);
-    if ( !$wiki ) {
+    my $wiki;
+    $wiki =
+      Wiki::Toolkit->new( store => $store->new( %{ $args{storeargs} } ), );
+
+    if ( !defined $wiki ) {
         croak "Could not load Wiki::Toolkit\n";
     }
+
     $self->param( wiki => $wiki );
 
     # Maybe later add the connection to the database here...
