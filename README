@@ -1,0 +1,58 @@
+App-Stinki
+
+The README is used to introduce the module and provide instructions on
+how to install the module, any machine dependencies it may have (for
+example C compilers and installed libraries) and any other information
+that should be provided before the module is installed.
+
+A README file is required for CPAN modules since CPAN extracts the README
+file from a module distribution so that people browsing the archive
+can use it get an idea of the modules uses. It is usually a good idea
+to provide version information here so that people can decide whether
+fixes for the module are worth downloading.
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Build.PL
+	./Build
+	./Build test
+	./Build install
+
+SUPPORT AND DOCUMENTATION
+
+After installing, you can find documentation for this module with the perldoc 
+command.
+
+    perldoc App::Stinki
+
+You can also look for information at:
+
+    Search CPAN
+        http://search.cpan.org/dist/App-Stinki
+
+    CPAN Request Tracker:
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=App-Stinki
+
+    AnnoCPAN, annotated CPAN documentation:
+        http://annocpan.org/dist/App-Stinki
+
+    CPAN Ratings:
+        http://cpanratings.perl.org/d/App-Stinki
+
+COPYRIGHT AND LICENCE
+
+Copyright 2010 Consolidated Braincells Inc., all rights reserved.
+
+This distribution is free software; you can redistribute it and/or modify it
+under the terms of either:
+
+a) the GNU General Public License as published by the Free Software
+Foundation; either version 2, or (at your option) any later version, or
+
+b) the Artistic License version 2.0.
+
+The full text of the license can be found in the LICENSE file included
+with this distribution.
+

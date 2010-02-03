@@ -1,0 +1,45 @@
+---
+abstract: 'The Simple TItaNium wiKI'
+author:
+  - 'Jaldhar H. Vyas <jaldhar@braincells.com>'
+build_requires:
+  File::Find: 0
+  Test::More: 0
+  Test::WWW::Mechanize::CGIApp: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3601'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: App-Stinki
+provides:
+  App::Stinki:
+    file: lib/App/Stinki.pm
+    version: 0.1
+  App::Stinki::Plugin:
+    file: lib/App/Stinki/Plugin.pm
+    version: 0.1
+  App::Stinki::Plugin::NodeList:
+    file: lib/App/Stinki/Plugin/NodeList.pm
+    version: 0.1
+  App::Stinki::Plugin::RecentChanges:
+    file: lib/App/Stinki/Plugin/RecentChanges.pm
+    version: 0.1
+  App::Stinki::Plugin::Static:
+    file: lib/App/Stinki/Plugin/Static.pm
+    version: 0.1
+  App::Stinki::Setup:
+    file: lib/App/Stinki/Setup.pm
+    version: 0.1
+requires:
+  Class::Delegator: 0
+  Module::Load: 0
+  Titanium: 0
+  URI::Escape: 0
+  Wiki::Toolkit: 0
+resources:
+  license: http://dev.perl.org/licenses/
+  repository: http://github.com/jaldhar/App-Stinki
+version: 0.1
