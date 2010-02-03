@@ -47,11 +47,11 @@ our %MAGIC_NODE;
 
 =head1 VERSION
 
-This document describes App::Stinki Version 0.1
+This document describes App::Stinki Version 0.2
 
 =cut
 
-our $VERSION = '0.1';
+our $VERSION = '0.2';
 
 =head1 DESCRIPTION
 

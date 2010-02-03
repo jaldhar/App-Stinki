@@ -17,7 +17,7 @@ name: App-Stinki
 provides:
   App::Stinki:
     file: lib/App/Stinki.pm
-    version: 0.1
+    version: 0.2
   App::Stinki::Plugin:
     file: lib/App/Stinki/Plugin.pm
     version: 0.1
@@ -42,4 +42,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: http://github.com/jaldhar/App-Stinki
-version: 0.1
+version: 0.2
