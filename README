@@ -1,24 +1,63 @@
-App-Stinki
+App-Stinki -- The Simple TItaNium wiKI
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
-
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it get an idea of the modules uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+An instant wiki application that uses the Titanium framework and Wiki::Toolkit
 
 INSTALLATION
 
-To install this module, run the following commands:
+If you have the Module::Signature module installed, you can verify the
+integrity of this distribution by typing:
 
-	perl Build.PL
-	./Build
-	./Build test
-	./Build install
+    cpansign -v
+
+Module::Signature requires GnuPG which you can get from:
+http://www.gnupg.org/download/
+A binary version for Windows is available from that page.
+
+Then to install this module, run the following commands:
+
+    perl Build.pl
+    ./Build
+    ./Build test
+    ./Build install
+
+On Windows you don't need to type the preliminary ./
+
+Alternatively, you can do:
+
+    perl Makefile.PL
+    make
+    make test
+    make install
+
+
+DEPENDENCIES
+
+This module requires these other modules:
+
+Class::Delegator
+Module::Load
+Titanium
+URI::Escape
+Wiki::Toolkit
+
+Additionally if you want to run the tests:
+
+Module::Signature
+Test::More
+Test::WWW::Mechanize::CGIApp
+
+Further tests are enabled by setting the environment variable RELEASE_TESTING
+to 1 and installing the following modules:
+
+Perl::Critic           1.098
+Pod::Coverage          0.18
+Pod::Simple            3.07
+Test::Perl::Critic     1.01
+Test::Pod              1.26
+Test::Pod::Coverage    1.08
+
+They are all available on CPAN (http://www.cpan.org)
+
 
 SUPPORT AND DOCUMENTATION
 
@@ -40,6 +79,7 @@ You can also look for information at:
 
     CPAN Ratings:
         http://cpanratings.perl.org/d/App-Stinki
+
 
 COPYRIGHT AND LICENCE
 
